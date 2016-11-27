@@ -126,10 +126,10 @@ hr {
 }
 
 #splash {
-	width: 754px;
+	width: 1000px;
 	height: 266px;
-	padding-bottom: 3px;
-	background: url(images/img04.jpg) no-repeat left top;
+	/*padding-bottom: 3px;*/
+	background: url(images/cover.jpg) no-repeat left top;
 }
 
 /* Header */
