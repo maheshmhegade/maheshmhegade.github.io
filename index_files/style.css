@@ -1,5 +1,5 @@
 /*
-Theme Name: SPARX - IMAGE - Version: 1
+Theme Name: SPARX - HTML5 VIDEO - Version: 1
 Description:  Designed by josweb.
 Author:  Jo
 Purchase:  http://themeforest.net/user/josweb
@@ -8,8 +8,8 @@ Purchase:  http://themeforest.net/user/josweb
 02. INTRO PAGE
 03. SUBSCRIBE PAGE
 04. COUNTDOWN PAGE
-05. INFO/ABOUT PAGE
-06: PRELOADER
+05: ABOUT/INFO PAGE
+06. PRELOADER
 07: MEDIA QUERIES
 */
 
@@ -19,11 +19,11 @@ Purchase:  http://themeforest.net/user/josweb
 html, body { height: 100%; padding: 0; margin: 0; }
 
 body {
- 	background: #14131c;
-	font:16px/24px 'Lato', sans-serif;
+ 	font:16px/24px 'Lato', sans-serif;
 	color:#fff;
-	font-weight: 400;
 	text-align:center;
+	background:#222;
+	font-weight: 400;
 	text-rendering: optimizeLegibility;
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 	height: 100%;
@@ -143,25 +143,25 @@ p { margin: 20px 0; }
 .no-svg .si-icon-flag { background-image: url('../img/flag.png') }
 .si-icons { cursor:pointer; }
 
-/**** OVERLAY & BACKGROUND ***/
-.vegas-overlay {
-	background: transparent url(../img/overlay.png);
-	opacity: 0.5;
-	z-index: -1;
+/**** VIDEO JS ****/
+.wallpaper, .wallpaper .wallpaper-container, .wallpaper .wallpaper-media {
+	-webkit-transition: none !important;
+	transition: none !important;
 }
-.vegas-background {
-	-ms-interpolation-mode: bicubic;
-	image-rendering: optimizeQuality;
-    max-width: none !important; 
-	z-index: -2;
+.wallpaper { overflow: hidden; position: relative; }
+.wallpaper .wallpaper-container { height: 100%; overflow: hidden; position: absolute; top: 0; width: 100%; z-index: -1; }
+.wallpaper .wallpaper-media { left: 0; opacity: 0; position: absolute; top: 0; }
+.wallpaper .wallpaper-media.animated {
+	-webkit-transition: opacity 0.5s linear !important;
+	transition: opacity 0.5s linear !important;
 }
-.vegas-overlay, .vegas-background {
-	-webkit-user-select: none;
-	 -khtml-user-select: none;
-	   -moz-user-select: none;
-	    -ms-user-select: none;
-	        user-select: none;
-}
+.wallpaper .wallpaper-media img, .wallpaper .wallpaper-media video, .wallpaper .wallpaper-media iframe { display: block; height: 100%; width: 100%; }
+.wallpaper .wallpaper-embed.ready:after { content: ''; height: 100%; left: 0; position: absolute; top: 0; width: 100%; z-index: 1; }
+.wallpaper .wallpaper-embed.ready iframe { /* pointer-events: none; - safari doesn't like this :/ */ z-index: 0; }
+.wallpaper .wallpaper-media.native { background-position: center; background-size: cover; height: 100%; width: 100%; }
+.wallpaper .wallpaper-media.native img { display: none; }
+.wallpaper .wallpaper-media.fixed { background-position: center; background-attachment: fixed; height: 100%; width: 100%; }
+.wallpaper .wallpaper-media.fixed img { display: none; }
 
 /*-----------------------------------------------------------------------------------*/
 /*	02: INTRO PAGE
@@ -366,7 +366,7 @@ input { outline: none; }
 #preloader {
 	position: fixed;
 	top: 0; left: 0; right: 0; bottom: 0;
-	background-color: #121420;
+	background-color: #111;
 	z-index: 9999;
 }
 .status1 {
@@ -392,7 +392,7 @@ input { outline: none; }
 .content h1, h1 { font-size: 45px!important; }
 .soon { font-size: 12px; }
 .content { padding: 40px 0 20px!important; }
-.vegas-overlay, .vegas-background { min-height:100%!important; }
+body, #overlay_pattern { min-height:540px!important; }
 .link-effect  a{ margin: 10px  0px!important; font-size:14px;}
 .block {
 	position: relative;
@@ -405,4 +405,3 @@ input { outline: none; }
 .overlay-content h1 { text-align: left!important; margin-left: 12px!important; }
 .overlay-content .text-center { text-align: left!important; margin-left: 5px!important; }
 .status2 { top: 55%!important; }
-}
